@@ -87,6 +87,7 @@ app.delete("/api/notes/:id", (req, res) => {
           fs.writeFile(`./db/db.json`, JSON.stringify(parsedData), (err) =>
             err ? console.err(err) : console.info("notes have been updated!")
           );
+          res.status(200).json(parsedData);
         } else {
           res.status(400).json(`${req.params.id} was not found in the data`);
         }
