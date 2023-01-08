@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const uuid = require("uuid");
+const e = require("express");
 const app = express();
 const PORT = 3001;
 
@@ -64,12 +65,41 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+  fs.readFile(`./db/db.json`, `utf-8`, (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      //turns data into an object
+      parsedData = JSON.parse(data);
+      console.log(typeof parsedData);
+
+      //finds the note that matches the one the user wants to delete
+      for (let i = 0; i < parsedData.length; i++) {
+        //matches the id in the parameter with the id of the data
+        if (parsedData[i].id === req.params.id) {
+          console.log(parsedData[i].id);
+          const index = parsedData.indexOf(parsedData[i]);
+          console.log(index);
+
+          newData = parsedData.splice(index, 1);
+
+          fs.writeFile(`./db/db.json`, JSON.stringify(parsedData), (err) =>
+            err ? console.err(err) : console.info("notes have been updated!")
+          );
+        } else {
+          res.status(400).json(`${req.params.id} was not found in the data`);
+        }
+      }
+    }
+  });
+});
+
 app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "public/index.html"))
 );
 
 //
-
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
