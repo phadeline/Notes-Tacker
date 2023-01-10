@@ -6,7 +6,6 @@ const uuid = require("uuid");
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-
 router.get("/", (req, res) => {
   fs.readFile(`./db/db.json`, `utf-8`, (err, data) => {
     if (err) {
@@ -21,7 +20,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const { title, text } = req.body;
   const uuid4 = uuid.v4();
-  
+
   if (title && text) {
     const newNote = {
       id: uuid4,
@@ -58,5 +57,35 @@ router.post("/", (req, res) => {
   }
 });
 
+router.delete("/:id", (req, res) => {
+  console.log(req.params.id);
+  fs.readFile(`./db/db.json`, `utf-8`, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      //turns data into an object
+      parsedData = JSON.parse(data);
+      console.log(parsedData);
+      const foundData = parsedData.findIndex(
+        (data) => data.id == req.params.id
+      );
+      if (foundData === -1) {
+        res.status(400).json(`${req.params.id} was not found in the data`);
+        return;
+      } else {
+        parsedData.splice(foundData, 1);
+
+        fs.writeFile(`./db/db.json`, JSON.stringify(parsedData), (err) =>
+          err ? console.err(err) : console.info("notes have been updated!")
+        );
+        res.status(200).json(parsedData);
+        return;
+      }
+
+      //finds the note that matches the one the user wants to delete
+    }
+  });
+});
 
 module.exports = router;
