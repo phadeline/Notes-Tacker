@@ -5,7 +5,7 @@ MIT License
 
 ## Description
 
-The purpose of this project was to create a web app that allows the user to save and delete notes. Once the user enter a title and text in their appropriate lines then a save icon pop ups which once clicked, saves the note on the left hand side of the screen. The user can also delete notes with the trash icon next to each note.
+The purpose of this project was to create a web app that allows the user to save and delete notes. Once the user enter a title and text in their appropriate lines then a save icon pop ups which once clicked, saves the note on the left hand side of the screen. The user can also delete notes with the trash icon next to each note. This Web app was depployed on [Heroku](https://serene-bastion-58110.herokuapp.com/).
 
 ## Table of Contents
 
