@@ -53,7 +53,9 @@ The purpose of this project was to create a web app that allows the user to save
 The user is required to have installed Node.js in order to use this application if they want to run it on the browser.
 
 ## Usage
-
+Link to the Deployed application: https://serene-bastion-58110.herokuapp.com/
+Video of the web app: 
+[Note Taker.webm](https://user-images.githubusercontent.com/112015433/211843993-35014d6a-abb2-4061-830d-c2862b297fc6.webm)
 
 ## Tests
 
