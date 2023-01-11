@@ -54,7 +54,6 @@ The user is required to have installed Node.js in order to use this application 
 
 ## Usage
 
-[Note Taker](https://user-images.githubusercontent.com/112015433/211841884-7e77f007-7d4a-42f4-bc76-609cbfc9c42d.webm)
 ## Tests
 
 No tests were required for this web app.
