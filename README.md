@@ -53,6 +53,10 @@ The purpose of this project was to create a web app that allows the user to save
 The user is required to have installed Node.js in order to use this application if they want to run it on the browser.
 
 ## Usage
+- The deployed site for this web app can be found at (https://serene-bastion-58110.herokuapp.com/).
+- Here's the video showing how it works: 
+
+[Note Taker](https://user-images.githubusercontent.com/112015433/211841884-7e77f007-7d4a-42f4-bc76-609cbfc9c42d.webm)
 
 ## Tests
 
@@ -60,4 +64,5 @@ No tests were required for this web app.
 
 ## Credits and Collaborators
 
-The starter code for this project was provided by [Rutgers Coding Bootcamp](https://github.com/coding-boot-camp/miniature-eureka)
+The starter code for this project was provided by [Rutgers Coding Bootcamp](https://github.com/coding-boot-camp/miniature-eureka).
+
